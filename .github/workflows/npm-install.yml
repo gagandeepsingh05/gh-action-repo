@@ -1,1 +1,5 @@
-lets go 
+- name: Install Node.js
+  uses: actions/setup-node@v6
+  with:
+    node-version: 20
+    cache: 'npm'
