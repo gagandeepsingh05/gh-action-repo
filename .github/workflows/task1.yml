@@ -1,1 +1,43 @@
-
+name: CI Pipeline
+on: push
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v5
+            - name: install nodejs
+              uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+            - name: install dependencies
+              run: npm ci
+            - name: run linter
+              run: npm run lint
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v5
+            - name: install nodejs
+              uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+            - name: install dependencies
+              run: npm ci
+            - name: run tests
+              run: npm test
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v5
+            - name: install nodejs
+              uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+            - name: install dependencies
+              run: npm ci
+            - name: build project
+              run: npm run build
+              run: echo "Build completed"
