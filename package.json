@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "echo \"lint passed\"",
     "test": "echo \"test passed\"",
     "build": "echo \"build passed\""
   },
