@@ -1,8 +1,21 @@
+output details pn "issue"
+
+
 name: Output information
-on: workflow_dispatch
+on: issue_comment
 jobs:
-    info:
+    output_info:
         runs-on: ubuntu-latest
         steps:
-            - name: Output Github context
-              run: echo "${{ toJson(github) }}"
+            - name: Get code
+              uses: actions/checkout@v5
+            - name: install nodejs
+              uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+            - name: install dependencies
+              run: npm ci
+            - name: output details
+              run: |
+                    echo "Outputting issue details"
+                    # Add commands to output issue details here
